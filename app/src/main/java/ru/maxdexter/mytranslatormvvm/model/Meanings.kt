@@ -1,8 +1,8 @@
-package geekbrains.ru.translator.model.data
+package ru.maxdexter.mytranslatormvvm.model
 
 import com.google.gson.annotations.SerializedName
 
-class Meanings(
+data class Meanings(
     @field:SerializedName("translation") val translation: Translation?,
     @field:SerializedName("imageUrl") val imageUrl: String?
 )
