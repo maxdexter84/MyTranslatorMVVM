@@ -15,7 +15,7 @@ import io.reactivex.observers.DisposableObserver
 import ru.maxdexter.mytranslatormvvm.model.SearchResult
 
 
-class MainViewModel(private val repository: Repository):ViewModel (){
+class MainViewModel (private val repository: Repository):ViewModel (){
 
 
     private val _appState = MutableLiveData<AppState>()
