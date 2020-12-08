@@ -13,9 +13,10 @@ import ru.maxdexter.mytranslatormvvm.repository.Repository
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import ru.maxdexter.mytranslatormvvm.model.SearchResult
+import javax.inject.Inject
 
 
-class MainViewModel (private val repository: Repository):ViewModel (){
+class MainViewModel @Inject constructor(private val repository: Repository):ViewModel (){ //Чтобы применить анотацию к конструктору надо явно указать ключевое слово constructor
 
 
     private val _appState = MutableLiveData<AppState>()

@@ -11,17 +11,20 @@ import ru.maxdexter.mytranslatormvvm.databinding.ActivityMainBinding
 import ru.maxdexter.mytranslatormvvm.model.AppState
 import ru.maxdexter.mytranslatormvvm.repository.Repository
 import ru.maxdexter.mytranslatormvvm.ui.searchfragment.SearchFragment
+import javax.inject.Inject
 
 class MainActivity: AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     private var mainAdapter: MainAdapter? = null
     private val repository by lazy {
-        Repository()
+        Repository(this)
     }
-    private val viewModel by lazy {
-        ViewModelProvider(this,MainViewModelFactory(repository)).get(MainViewModel::class.java)
-    }
+    @Inject
+    private lateinit var viewModel: MainViewModel
+//    private val viewModel by lazy {
+//        ViewModelProvider(this,MainViewModelFactory(repository)).get(MainViewModel::class.java)
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
