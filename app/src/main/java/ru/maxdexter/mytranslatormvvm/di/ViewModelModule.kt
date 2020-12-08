@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import geekbrains.ru.translator.di.ViewModelKey
 import ru.maxdexter.mytranslatormvvm.ui.MainViewModel
 
 // Модуль послужит источником коллекции ViewModel’ей для фабрики:

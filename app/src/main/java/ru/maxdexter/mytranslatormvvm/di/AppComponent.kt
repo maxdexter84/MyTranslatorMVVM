@@ -8,7 +8,8 @@ import dagger.android.support.AndroidSupportInjectionModule
 import ru.maxdexter.mytranslatormvvm.ui.MainActivity
 import javax.inject.Singleton
 
-@Component(modules = [RepositoryModule::class,ViewModelModule::class, AndroidSupportInjectionModule::class])
+@Component(modules = [RepositoryModule::class,ViewModelModule::class,ActivityModule::class, AndroidSupportInjectionModule::class])
+@Singleton
 interface AppComponent {
 
     // Этот билдер мы вызовем из класса TranslatorApp, который наследует
@@ -18,6 +19,8 @@ interface AppComponent {
         @BindsInstance
         fun application(application: Application): Builder
 
+        @BindsInstance
+        fun context(context: Context): Builder
         fun build(): AppComponent
     }
     // Наш кастомный Application

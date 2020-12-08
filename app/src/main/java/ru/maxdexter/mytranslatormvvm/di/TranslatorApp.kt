@@ -4,8 +4,10 @@ import android.app.Activity
 import android.app.Application
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
-import dagger.internal.SetFactory.builder
 import javax.inject.Inject
+
+
+
 
 
 class TranslatorApp : Application(), HasActivityInjector {
@@ -19,9 +21,12 @@ class TranslatorApp : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-         DaggerAppComponent.builder()
+        DaggerAppComponent.builder()
             .application(this)
+            .context(applicationContext)
             .build()
             .inject(this)
     }
+
+
 }

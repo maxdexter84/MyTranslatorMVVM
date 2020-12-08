@@ -6,8 +6,8 @@ import ru.maxdexter.mytranslatormvvm.repository.Repository
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class MainViewModelFactory @Inject constructor(private val repository: Repository): ViewModelProvider.Factory {
+
+class MainViewModelFactory constructor(private val repository: Repository): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return MainViewModel(repository) as T
     }
