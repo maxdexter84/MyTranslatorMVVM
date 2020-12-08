@@ -19,8 +19,6 @@ interface AppComponent {
         @BindsInstance
         fun application(application: Application): Builder
 
-        @BindsInstance
-        fun context(context: Context): Builder
         fun build(): AppComponent
     }
     // Наш кастомный Application

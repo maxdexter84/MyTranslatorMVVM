@@ -1,5 +1,6 @@
 package ru.maxdexter.mytranslatormvvm.di
 
+import android.app.Application
 import android.content.Context
 import dagger.*
 import ru.maxdexter.mytranslatormvvm.repository.Repository
@@ -9,5 +10,5 @@ import javax.inject.Singleton
 class RepositoryModule {
     @Provides
     @Singleton
-    internal fun provideRepository(context: Context): Repository = Repository(context)
+    internal fun provideRepository(application: Application): Repository = Repository(application)
 }

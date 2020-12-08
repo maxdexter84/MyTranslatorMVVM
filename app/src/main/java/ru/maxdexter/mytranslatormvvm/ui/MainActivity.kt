@@ -14,6 +14,7 @@ import ru.maxdexter.mytranslatormvvm.repository.Repository
 import ru.maxdexter.mytranslatormvvm.ui.searchfragment.SearchFragment
 import javax.inject.Inject
 
+
 class MainActivity: AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
