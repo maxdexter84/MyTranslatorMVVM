@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.android.AndroidInjection
 import ru.maxdexter.mytranslatormvvm.R
 import ru.maxdexter.mytranslatormvvm.adapter.MainAdapter
 import ru.maxdexter.mytranslatormvvm.databinding.ActivityMainBinding
@@ -17,18 +18,23 @@ class MainActivity: AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     private var mainAdapter: MainAdapter? = null
-    private val repository by lazy {
-        Repository(this)
-    }
+//    private val repository by lazy {
+//        Repository(this)
+//    }
     @Inject
-    private lateinit var viewModel: MainViewModel
+    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    lateinit var viewModel: MainViewModel
 //    private val viewModel by lazy {
 //        ViewModelProvider(this,MainViewModelFactory(repository)).get(MainViewModel::class.java)
 //    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Сообщаем Dagger’у, что тут понадобятся зависимости
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        viewModel = viewModelFactory.create(MainViewModel::class.java)
         initFab()
         renderData()
         initRecycler()
